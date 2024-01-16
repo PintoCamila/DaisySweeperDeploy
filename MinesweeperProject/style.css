@@ -1,0 +1,63 @@
+.container{
+    width: 500px;
+    align-content: center;
+    align-items: center;
+    margin:auto;
+}
+
+.grid{
+    height: 440px;
+    width: 423px;
+    display: flex;
+    flex-wrap: wrap;
+    border-width: 3px;
+    border-style: dashed;
+    border-color: black;
+    background-color: grey;
+    align-content: center;
+    align-items: center;
+    margin:auto;
+}
+
+div{
+    height: 40px;
+    width: 40px;
+    align-content: center;
+    align-items: center;
+    margin:auto;
+    text-align: center;
+}
+
+.bomb{
+    background-color: orange;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: white;
+    align-content: center;
+    align-items: center;
+    margin:auto;
+}
+
+.safeSquare{
+    background-color: blue;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: white;
+    align-content: center;
+    align-items: center;
+    margin:auto;
+}
+
+.checked{
+    background-color: red;
+    align-content: center;
+    align-items: center;
+    margin:auto;
+}
+
+.isolated{
+    background-color: green;
+    align-content: center;
+    align-items: center;
+    margin:auto;
+}
