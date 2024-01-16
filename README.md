@@ -9,6 +9,8 @@ Use Live Server to view
 <br>
 Play minesweeper
 
+<br>
+<br>
 
 Made following a tutorial by Traversy Media and Ania Kubow on youtube:
 <br>
