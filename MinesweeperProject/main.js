@@ -1,4 +1,5 @@
 const grid = document.querySelector(".grid");
+let score = document.querySelector("#scorePoints");
 let width = 10;
 let squares = [];
 let bombAmount = 20;

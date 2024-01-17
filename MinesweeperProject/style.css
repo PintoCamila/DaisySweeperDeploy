@@ -1,63 +1,127 @@
-.container{
-    width: 500px;
-    align-content: center;
-    align-items: center;
-    margin:auto;
+.gameHeader {
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
-.grid{
-    height: 440px;
-    width: 423px;
+#title {
     display: flex;
-    flex-wrap: wrap;
+    align-self: center;
+    justify-content: center;
+    position: relative;
+    min-height: 4rem;
+    width: 423px;
     border-width: 3px;
-    border-style: dashed;
-    border-color: black;
-    background-color: grey;
-    align-content: center;
-    align-items: center;
-    margin:auto;
+      border-style: dashed;
+      border-color: black;
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
 }
 
-div{
-    height: 40px;
-    width: 40px;
-    align-content: center;
+#footer{
+    display:flex;
     align-items: center;
-    margin:auto;
-    text-align: center;
+    justify-content: center;
 }
 
-.bomb{
-    background-color: orange;
-    border-width: 1px;
-    border-style: dashed;
-    border-color: white;
-    align-content: center;
+#footer div{
+    display:flex;
     align-items: center;
-    margin:auto;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;
+    border-width: 3px;
+      border-style: dashed;
+      border-color: black;
+      border-bottom-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+      width: 423px;
 }
 
-.safeSquare{
-    background-color: blue;
-    border-width: 1px;
-    border-style: dashed;
-    border-color: white;
-    align-content: center;
-    align-items: center;
-    margin:auto;
+.score {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 0px;
+ 
 }
 
-.checked{
-    background-color: red;
-    align-content: center;
-    align-items: center;
-    margin:auto;
+#scoreLabel{
+    display: flex;
+  justify-content: flex-end;
+  
+  position: relative;
 }
 
-.isolated{
-    background-color: green;
-    align-content: center;
-    align-items: center;
-    margin:auto;
+#scorePoints {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  
+ 
+}
+
+.container {
+  display: flex;
+  width: 500px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 120px;
+  min-height: 120px;
+  max-height: 20px;
+  margin: auto;
+  max-width: 100%;
+  
+}
+
+.grid {
+  margin-top: 10dvh;
+  display: flex;
+  height: 440px;
+  width: 423px;
+  display: flex;
+  flex-wrap: wrap;
+  border-width: 3px;
+  border-style: dashed;
+  border-color: black;
+  align-self: center;
+  justify-content: space-around;
+}
+
+div {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.bomb {
+  background-color: orange;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: white;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.safeSquare {
+  background-color: blue;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: white;
+}
+
+.checked {
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.isolated {
+  background-color: green;
 }
