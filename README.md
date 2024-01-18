@@ -21,7 +21,7 @@ If there are fires nearby, the tiles will turn red and tell you how many fires a
 <br>
 Right click to place seeds on top of tiles you think may have a fire
 <br>
-You win by either turning all fire-free tiles or placing seeds on all fire tiles
+You win by either flipping all fire-free tiles or placing seeds on all fire tiles
 <br>
 (!!!Careful! You only have 10 seeds for the 20 fires!!!)
 
