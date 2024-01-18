@@ -1,5 +1,5 @@
 # Daisysweeper
-Simple minesweeper in JS
+Simple minesweeper clone using JS, CSS, and HTML
 
 <br>
 
@@ -8,7 +8,7 @@ Run code in VS Code
 <br>
 Use Live Server to view
 <br>
-Play minesweeper
+Play DaisySweeper
 
 <br>
 
