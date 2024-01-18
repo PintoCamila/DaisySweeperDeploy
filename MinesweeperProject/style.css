@@ -31,7 +31,7 @@ background: linear-gradient(180deg, rgba(255,188,225,1) 1%, rgba(158,179,48,1) 5
   min-height: 4rem;
   width: 423px;
 
-  background-color: beige;
+  background-color: white;
 
   border-width: 5px;
   border-style: dashed;
@@ -68,7 +68,7 @@ background: linear-gradient(180deg, rgba(255,188,225,1) 1%, rgba(158,179,48,1) 5
   height: 440px;
   width: 423px;
 
-  background-color: beige;
+  background-color: white;
 
   border-width: 5px;
   border-style: dashed;
@@ -83,6 +83,8 @@ div {
   display: flex;
   height: 40px;
   width: 40px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   border-radius: 8px;
 }
@@ -100,7 +102,7 @@ div {
   width: 423px;
   height: 2.5rem;
 
-  background-color: beige;
+  background-color: white;
 
   border-width: 5px;
   border-style: dashed;

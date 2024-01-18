@@ -7,6 +7,7 @@ let squares = [];
 
 let bombAmount = 20;
 let flags = 0;
+let maxFlags = bombAmount/2;
 
 let score = 0;
 let maxScore = (width * width) - bombAmount;
@@ -37,7 +38,11 @@ function createBoard() {
 
     square.oncontextmenu = function(e) {
         e.preventDefault();
-        addFlag(square);
+        if(flags !== maxFlags){
+
+          addFlag(square);
+
+        }
     }
   }
 
