@@ -1,4 +1,4 @@
-# Minesweeper
+# Daisysweeper
 Simple minesweeper in JS
 
 
