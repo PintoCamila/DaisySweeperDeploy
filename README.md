@@ -28,6 +28,6 @@ You win by either flipping all fire-free tiles or placing seeds on all fire tile
 <br>
 <br>
 
-Made following a tutorial by Traversy Media and Ania Kubow on youtube:
+Inspired by a tutorial by Traversy Media and Ania Kubow on youtube:
 <br>
 link: https://www.youtube.com/watch?v=W0No1JDc6vE
