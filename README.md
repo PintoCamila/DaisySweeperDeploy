@@ -23,6 +23,8 @@ Right click to place seeds on top of tiles you think may have a fire
 <br>
 You win by either flipping all fire-free tiles or placing seeds on all fire tiles
 <br>
+<br>
+Press the X button near the Score to retry
 (!!!Careful! You only have 10 seeds for the 20 fires!!!)
 
 <br>
