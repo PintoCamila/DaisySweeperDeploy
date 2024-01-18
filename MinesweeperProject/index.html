@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minesweeper</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css"></link>
 </head>
 <body>
+    <div class="background"></div>
     
     <header class="gameHeader">
-        <h1 id="title">Welcome to Minesweeper!</h1>
+        <h1 id="title">Welcome to Daisysweeper!</h1>
         
     </header>
     <div class="container">
         <div class="grid"></div>
+        <footer id="footer">
+            <div class="score">
+                <button id="playAgainButton">❌</button> 
+                <span id="scoreLabel">Score:</span>
+                <span id="scorePoints">00000</span>
+            </div>
+        </footer>
     </div>
+
+<div class="whiteFlowers">
+    <img id="daisies" src="resources/whiteFlowers.gif" />
+</div>
     
-    <footer id="footer">
-        <div class="score">
-            <span id="scoreLabel">Score:</span>
-            <span id="scorePoints">00000</span>
-        </div>
-    </footer>
     <script src="main.js" charset="UTF-8"></script>
 </body>
 </html>
