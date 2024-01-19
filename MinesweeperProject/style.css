@@ -14,7 +14,7 @@ body {
   height: 100%;
 
   background: rgb(255,188,225);
-background: linear-gradient(180deg, rgba(255,188,225,1) 1%, rgba(158,179,48,1) 50%, rgba(255,72,174,1) 100%);
+  background: linear-gradient(180deg, rgba(255,188,225,1) 1%, rgba(158,179,48,1) 50%, rgba(255,72,174,1) 100%);
 }
 
 .gameHeader {
@@ -36,13 +36,15 @@ background: linear-gradient(180deg, rgba(255,188,225,1) 1%, rgba(158,179,48,1) 5
   border-width: 5px;
   border-style: dashed;
   border-color: black;
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 
   box-shadow: 0px 0px 50px beige;
   border-color: rgb(252, 193, 46);
 
   font-weight: bold;
+
+  padding: 10px;
 }
 
 .container {
@@ -50,11 +52,14 @@ background: linear-gradient(180deg, rgba(255,188,225,1) 1%, rgba(158,179,48,1) 5
   justify-content: center;
   align-items: flex-start;
   position: relative;
-  width: 440px;
+  
   top: 0px;
-  height: 505px;
   margin: auto;
+
+  width: 440px;
   max-width: 100%;
+  height: 505px;
+
   text-align: center;
 }
 
@@ -81,12 +86,15 @@ background: linear-gradient(180deg, rgba(255,188,225,1) 1%, rgba(158,179,48,1) 5
 
 div {
   display: flex;
-  height: 40px;
-  width: 40px;
   align-items: center;
   justify-content: center;
-  text-align: center;
+
+  height: 40px;
+  width: 40px;
+
   border-radius: 8px;
+  
+  text-align: center;
 }
 
 #footer {
@@ -99,6 +107,7 @@ div {
   display: flex;
   align-items: center;
   position: absolute;
+  
   width: 423px;
   height: 2.5rem;
 
@@ -113,21 +122,39 @@ div {
   border-color: rgb(252, 193, 46);
 }
 
+#playAgainButton {
+  display: flex;
+  
+  border-radius: 20%;
+}
+
 .score {
   display: flex;
   justify-self: flex-end;
-  position: relative;
-  bottom: 0px;
   justify-content: space-around;
+  position: relative;
+  
+  padding: 2px;
+  bottom: 0px;
+  
   width: 100px;
+  
   font-weight: 900;
   font-size: large;
+}
+
+#flagLabel{
+  display: flex;
+  justify-self: flex-end;
+  left: 50px;
+
+  position: relative;
 }
 
 #scoreLabel {
   display: flex;
   justify-self: flex-end;
-  left: 100px;
+  left: 50px;
 
   position: relative;
 }
@@ -138,19 +165,17 @@ div {
   position: relative;
 }
 
-#playAgainButton {
-  display: flex;
-  border-radius: 20%;
-}
-
 .bomb {
-  background-color: rgb(240, 188, 57);
+  justify-content: center;
+  align-items: center;
+  
+  margin: auto;
+  
+  background-color: blue;
   border-width: 1px;
   border-style: dashed;
   border-color: white;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+  
   text-align: center;
 }
 
@@ -159,22 +184,29 @@ div {
   border-width: 1px;
   border-style: dashed;
   border-color: white;
+  
   text-align: center;
 }
 
 .checked {
-  background-color: rgb(255, 53, 53);
   justify-content: center;
   align-items: center;
+  
   margin: auto;
+  
+  background-color: rgb(255, 53, 53);
+  
   text-align: center;
 }
 
 .isolated {
-  background-color: rgb(50, 184, 50);
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  
   margin: auto;
+  
+  background-color: rgb(50, 184, 50);
+  
   text-align: center;
 }
 
@@ -183,6 +215,7 @@ div {
   display: flex;
   position: absolute;
   justify-content: center;
+  
   width: 100%;
   height: auto;
   

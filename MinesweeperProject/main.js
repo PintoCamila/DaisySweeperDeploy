@@ -1,13 +1,14 @@
 const grid = document.querySelector(".grid");
 let scoreCounter = document.querySelector("#scorePoints");
 let playAgainButton = document.querySelector("#playAgainButton");
+let flagCounter = document.querySelector("#flagCounter")
 
 let width = 10;
 let squares = [];
 
 let bombAmount = 20;
 let flags = 0;
-let maxFlags = bombAmount/2;
+let maxFlags = bombAmount;
 
 let score = 0;
 let maxScore = (width * width) - bombAmount;
@@ -41,6 +42,7 @@ function createBoard() {
         if(flags !== maxFlags){
 
           addFlag(square);
+          
 
         }
     }
@@ -50,14 +52,13 @@ function createBoard() {
   for (let i = 0; i < squares.length; i++) {
     let total = 0;
     const isLeftEdge = i % width === 0;
-    const isRightEdge = i === width - 1;
+    const isRightEdge = (i % width) === width -1;
 
     if (squares[i].classList.contains("safeSquare")) {
       if (i > 0 && !isLeftEdge && squares[i - 1].classList.contains("bomb")) {
         total++;
       }
-      if (
-        i > 9 && !isRightEdge && squares[i + 1 - width].classList.contains("bomb")) {
+      if (i > 9 && !isRightEdge && squares[i + 1 - width].classList.contains("bomb")) {
         total++;
       }
       if (i > 10 && squares[i - width].classList.contains("bomb")) {
@@ -92,8 +93,7 @@ function click(square) {
   if (isGameOver) {
     return;
   }
-  if (square.classList.contains("checked") || square.classList.contains("isolated" || square.classList.contains("flag"))
-  ) {
+  if (square.classList.contains("checked") || square.classList.contains("isolated") || square.classList.contains("flag")) {
     return;
   }
   if (square.classList.contains("bomb")) {
@@ -101,10 +101,10 @@ function click(square) {
     GameOver(square);
 
   } else {
-    let totalBombs = square.getAttribute("data");
-    if (totalBombs != 0) {
+    let adjacentBombs = square.getAttribute("data");
+    if (adjacentBombs != 0) {
       square.classList.add("checked");
-      square.innerHTML = totalBombs;
+      square.innerHTML = adjacentBombs;
       incrementScore();
       return;
     }
@@ -163,7 +163,7 @@ function checkSquare(square, squareId) {
         const newSquare = document.getElementById(newId);
         click(newSquare);
     }
-  }, 10)
+  }, 30)
 }
 
 
@@ -171,10 +171,20 @@ function checkSquare(square, squareId) {
 function incrementScore(){
   score++;
   scoreCounter.innerText = score.toString().padStart(5, "0");
+  
+  checkVictory();
+}
 
-  if(score === maxScore){
-    isGameOver = true;
-  }
+//Increment Flag count:
+function incrementFlagCount(){
+  flags++;
+  flagCounter.innerText = flags.toString().padStart(2, "0");
+}
+
+//Decrement Flag count:
+function decrementFlagCount(){
+  flags--;
+  flagCounter.innerText = flags.toString().padStart(2, "0");
 }
 
 //Game Over:
@@ -190,7 +200,7 @@ function GameOver(square){
 }
 
 //Check For Victory State:
-function checkVictory() {
+function checkFlagVictory() {
     let matches = 0;
     for(let i = 0; i < squares.length; i++){
         if(squares[i].classList.contains("flag") && squares[i].classList.contains("bomb")) {
@@ -199,8 +209,21 @@ function checkVictory() {
         if(matches === bombAmount) {
             console.log("All Bombs Found. You Win!");
             isGameOver = true;
+            return;
         }
     }
+}
+
+function checkTileVictory() {
+  if(score === maxScore){
+    console.log("All Safe Tiles Found. You Win!");
+    isGameOver = true;
+  } 
+}
+
+function checkVictory() {
+  checkTileVictory();
+  checkFlagVictory();
 }
 
 //Add Flag:
@@ -212,12 +235,12 @@ function addFlag(square) {
         if(!square.classList.contains("flag")) {
             square.classList.add("flag");
             square.innerHTML = "🌱";
-            flags++;
+            incrementFlagCount();
             checkVictory();
-        } else {
+        } else if (square.classList.contains("flag")) {
             square.classList.remove("flag");
             square.innerHTML = "";
-            flags --;
+            decrementFlagCount();
         }
     }
 }
