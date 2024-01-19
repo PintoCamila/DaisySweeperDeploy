@@ -25,8 +25,7 @@ You win by either flipping all fire-free tiles or placing seeds on all fire tile
 <br>
 <br>
 Press the X button near the Score to forfeit game and retry
-<br>
-(!!!Careful! You only have 10 seeds for the 20 fires!!!)
+
 
 <br>
 <br>
