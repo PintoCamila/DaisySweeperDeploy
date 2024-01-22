@@ -1,7 +1,11 @@
 const grid = document.querySelector(".grid");
 let scoreCounter = document.querySelector("#scorePoints");
-let playAgainButton = document.querySelector("#playAgainButton");
-let flagCounter = document.querySelector("#flagCounter")
+let playAgainButton = document.querySelector("#restartBtn");
+let restartButton = document.querySelector("#playAgainButton");
+let flagCounter = document.querySelector("#flagCounter");
+let endGameScreen = document.querySelector("#endGameDiv");
+let endGameText = document.querySelector("#endGameText");
+let bombCount = document.querySelector("#bombCount");
 
 let width = 10;
 let squares = [];
@@ -14,6 +18,9 @@ let score = 0;
 let maxScore = (width * width) - bombAmount;
 
 let isGameOver = false;
+
+
+
 
 //create the Board:
 function createBoard() {
@@ -47,6 +54,8 @@ function createBoard() {
         }
     }
   }
+  
+
 
   //add numbers:
   for (let i = 0; i < squares.length; i++) {
@@ -85,7 +94,12 @@ function createBoard() {
   }
 }
 
+
+
 createBoard();
+bombCounter();
+
+
 
 //click on square functions:
 function click(square) {
@@ -116,6 +130,8 @@ function click(square) {
     square.innerHTML = "🌼";
   }
 }
+
+
 
 //check neighboring square once a square is clicked:
 function checkSquare(square, squareId) {
@@ -175,6 +191,7 @@ function incrementScore(){
   checkVictory();
 }
 
+
 //Increment Flag count:
 function incrementFlagCount(){
   flags++;
@@ -187,10 +204,17 @@ function decrementFlagCount(){
   flagCounter.innerText = flags.toString().padStart(2, "0");
 }
 
+function bombCounter(){
+  bombCount.innerText = `${bombAmount}`;
+}
+
+
+
 //Game Over:
 function GameOver(square){
     console.log("BOOM! You Hit a Bomb. Game Over!");
     isGameOver = true;
+    endGameScreen.classList.remove("hidden");
     //show all bomb locations:
     squares.forEach(square => {
         if(square.classList.contains("bomb")) {
@@ -198,6 +222,8 @@ function GameOver(square){
         }
     })
 }
+
+
 
 //Check For Victory State:
 function checkFlagVictory() {
@@ -209,6 +235,9 @@ function checkFlagVictory() {
         if(matches === bombAmount) {
             console.log("All Bombs Found. You Win!");
             isGameOver = true;
+            endGameText.innerHTML = "All Bombs Found.<br>You Win!";
+            endGameScreen.classList.add("flagWin");
+            endGameScreen.classList.remove("hidden");
             return;
         }
     }
@@ -218,6 +247,9 @@ function checkTileVictory() {
   if(score === maxScore){
     console.log("All Safe Tiles Found. You Win!");
     isGameOver = true;
+    endGameScreen.classList.add("tileWin");
+    endGameText.innerHTML = "All Safe Tiles Found.<br>You Win!";
+    endGameScreen.classList.remove("hidden");
   } 
 }
 
@@ -226,9 +258,11 @@ function checkVictory() {
   checkFlagVictory();
 }
 
+
+
 //Add Flag:
 function addFlag(square) {
-    if(isGameOver){
+    if(isGameOver || square.classList.contains("checked")|| square.classList.contains("isolated")){
         return;
     }
     if(!square.classList.contains("checked")|| !square.classList.contains("isolated") && (flags < bombAmount)) {
@@ -245,7 +279,15 @@ function addFlag(square) {
     }
 }
 
-//Play Again Button:
+
+
+//Play Again and Restart Buttons:
+function restartGame(){
 playAgainButton.addEventListener("click", function() {
   window.location.reload();
-})
+});
+restartButton.addEventListener("click", function() {
+  window.location.reload();
+})};
+
+restartGame();

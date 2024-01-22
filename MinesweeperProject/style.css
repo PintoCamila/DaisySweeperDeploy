@@ -3,6 +3,7 @@ body {
   text-align: center;
   justify-content:center;
   align-items: center;
+  font-size: 24px;
   font-weight: bolder;
 }
 
@@ -70,6 +71,8 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
 
+top:-10px;
+
   height: 440px;
   width: 423px;
 
@@ -100,7 +103,7 @@ div {
 #footer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content:space-around;
 }
 
 #footer div {
@@ -122,9 +125,12 @@ div {
   border-color: rgb(252, 193, 46);
 }
 
-#playAgainButton {
+#restartBtn {
   display: flex;
   
+  cursor: pointer;
+  left: 30px;
+
   border-radius: 20%;
 }
 
@@ -135,18 +141,20 @@ div {
   position: relative;
   
   padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
   bottom: 0px;
   
   width: 100px;
   
   font-weight: 900;
-  font-size: large;
+
 }
 
 #flagLabel{
   display: flex;
   justify-self: flex-end;
-  left: 50px;
+  left: 30px;
 
   position: relative;
 }
@@ -154,7 +162,15 @@ div {
 #scoreLabel {
   display: flex;
   justify-self: flex-end;
-  left: 50px;
+  left: 30px;
+
+  position: relative;
+}
+
+#bombLabel{
+  display: flex;
+  justify-self: flex-end;
+  left:30px;
 
   position: relative;
 }
@@ -194,7 +210,7 @@ div {
   
   margin: auto;
   
-  background-color: rgb(255, 53, 53);
+  background-color: rgb(255, 56, 56);
   
   text-align: center;
 }
@@ -205,7 +221,7 @@ div {
   
   margin: auto;
   
-  background-color: rgb(50, 184, 50);
+  background-color: rgb(122, 190, 4);
   
   text-align: center;
 }
@@ -223,4 +239,78 @@ div {
 
 #daisies {
   width: 200px;
+}
+
+#endGameDiv.hidden {
+  display: none;
+}
+
+#endGameDiv{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-around;
+  
+  width: 500px;
+  height: 150px;
+  
+  background-color: white;
+  
+
+  border-width: 5px;
+  border-style: dashed;
+  border-radius: 20px;
+  
+  box-shadow: 0px 0px 50px beige;
+  border-color: white;
+  background-color: rgb(255, 56, 56);
+  
+  text-align: center;
+  padding:20px;
+
+  left: 50%;
+  transform: translate(-50%);
+
+  margin-top: -400px;
+}
+
+#endGameDiv.tileWin{
+  border-color: white;
+  background-color: rgb(122, 190, 4);
+}
+
+#endGameDiv.flagWin{
+  border-color: white;
+  background-color: rgb(240, 188, 57);
+}
+
+#endGameScreen{
+ display: flex;
+ justify-content: center;
+
+ width: 100%;
+ 
+}
+
+#restartBtnDiv{
+  display: flex;
+  justify-content: center;
+	
+  width: 100%;
+}
+
+#playAgainButton{
+  display: flex;
+  
+  font-family: "Amatic SC";
+  font-size: 24px;
+  font-weight: bolder;
+	
+  padding: 8px 20px 8px 20px;
+	
+  cursor: pointer;
+	
+	border: 2px solid rgb(0, 23, 50);
+  border-radius: 10%;
 }

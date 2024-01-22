@@ -22,9 +22,11 @@
         <div class="grid"></div>
         <footer id="footer">
             <div class="score">
-                <button id="playAgainButton">❌</button> 
+                <button id="restartBtn">❌</button> 
                 <span id="flagLabel">🌱</span>
                 <span id="flagCounter">00</span>
+                <span id="bombLabel">🔥</span>
+                <span id="bombCount">00</span>
                 <span id="scoreLabel">Score:</span>
                 <span id="scorePoints">00000</span>
             </div>
@@ -33,6 +35,15 @@
 
 <div class="whiteFlowers">
     <img id="daisies" src="resources/whiteFlowers.gif" />
+</div>
+
+<div id="endGameDiv" class="hidden">
+    <div id="endGameScreen">
+        <h2 id="endGameText">Game Over</h2>
+    </div>
+    <div id="restartBtnDiv">
+        <button id="playAgainButton">Play Again</button>
+    </div>
 </div>
     
     <script src="main.js" charset="UTF-8"></script>
