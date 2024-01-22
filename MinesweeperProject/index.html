@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minesweeper</title>
+    <title>DaisySweeper</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,10 @@
         <div class="grid"></div>
         <footer id="footer">
             <div class="score">
-                <button id="restartBtn">❌</button> 
+                <a id="restartBtn">❌</a>
+                <span>
+                    <a id="muteButton">🔈</a>
+                </span> 
                 <span id="flagLabel">🌱</span>
                 <span id="flagCounter">00</span>
                 <span id="bombLabel">🔥</span>
@@ -45,6 +48,12 @@
         <button id="playAgainButton">Play Again</button>
     </div>
 </div>
+
+<audio id="audio" autoplay loop>
+    <source id="audioPlayer" src="resources/mixkit-christmas-gifts-862.mp3">
+</audio>
+
+
     
     <script src="main.js" charset="UTF-8"></script>
 </body>

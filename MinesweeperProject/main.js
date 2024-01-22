@@ -7,6 +7,12 @@ let endGameScreen = document.querySelector("#endGameDiv");
 let endGameText = document.querySelector("#endGameText");
 let bombCount = document.querySelector("#bombCount");
 
+
+ let audioPlayer = document.querySelector("#audioPlayer");
+let muteButton = document.querySelector("#muteButton"); 
+
+
+
 let width = 10;
 let squares = [];
 
@@ -98,6 +104,7 @@ function createBoard() {
 
 createBoard();
 bombCounter();
+audioControls();
 
 
 
@@ -294,3 +301,18 @@ restartButton.addEventListener("click", function() {
 })};
 
 restartGame();
+
+
+//Audio Controls
+function audioControls(){
+muteButton.addEventListener("click", () => {
+  audio.muted = !audio.muted;
+  if(audio.muted === true){
+    muteButton.innerText ="🔊";
+  }
+  if(!audio.muted === true){
+    muteButton.innerText ="🔈";
+  }
+})
+};
+
