@@ -1,7 +1,7 @@
 const grid = document.querySelector(".grid");
 let scoreCounter = document.querySelector("#scorePoints");
-let playAgainButton = document.querySelector("#restartBtn");
-let restartButton = document.querySelector("#playAgainButton");
+let playAgainButton = document.querySelector("#playAgainButton");
+let restartButton = document.querySelector("#restartBtn");
 let flagCounter = document.querySelector("#flagCounter");
 let endGameScreen = document.querySelector("#endGameDiv");
 let endGameText = document.querySelector("#endGameText");
@@ -214,7 +214,8 @@ function bombCounter(){
 function GameOver(square){
     console.log("BOOM! You Hit a Bomb. Game Over!");
     isGameOver = true;
-    endGameScreen.classList.remove("hidden");
+    setTimeout(() => {endGameScreen.classList.remove("hidden")}, 1000);
+    
     //show all bomb locations:
     squares.forEach(square => {
         if(square.classList.contains("bomb")) {
@@ -237,7 +238,8 @@ function checkFlagVictory() {
             isGameOver = true;
             endGameText.innerHTML = "All Bombs Found.<br>You Win!";
             endGameScreen.classList.add("flagWin");
-            endGameScreen.classList.remove("hidden");
+            setTimeout(() => {endGameScreen.classList.remove("hidden")}, 1000);
+            playAgainButton.classList.add("flagWin");
             return;
         }
     }
@@ -248,8 +250,9 @@ function checkTileVictory() {
     console.log("All Safe Tiles Found. You Win!");
     isGameOver = true;
     endGameScreen.classList.add("tileWin");
+    playAgainButton.classList.add("tileWin");
     endGameText.innerHTML = "All Safe Tiles Found.<br>You Win!";
-    endGameScreen.classList.remove("hidden");
+    setTimeout(() => {endGameScreen.classList.remove("hidden")}, 1000);
   } 
 }
 

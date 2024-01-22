@@ -187,7 +187,8 @@ div {
   
   margin: auto;
   
-  background-color: blue;
+  /* background-color: blue; */ 
+  background-color: rgb(240, 188, 57); 
   border-width: 1px;
   border-style: dashed;
   border-color: white;
@@ -293,7 +294,7 @@ div {
  
 }
 
-#restartBtnDiv{
+#playAgainButtonDiv{
   display: flex;
   justify-content: center;
 	
@@ -311,6 +312,15 @@ div {
 	
   cursor: pointer;
 	
-	border: 2px solid rgb(0, 23, 50);
+	border: 5px dashed;
+  border-color: rgb(255, 56, 56);
   border-radius: 10%;
+}
+
+#playAgainButton.tileWin{
+  border-color: rgb(122, 190, 4);
+}
+
+#playAgainButton.flagWin{
+  border-color: rgb(240, 188, 57);
 }
