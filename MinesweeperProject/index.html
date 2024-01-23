@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css"></link>
 </head>
 <body>
+
     <div class="background"></div>
     
     <header class="gameHeader">
@@ -35,23 +36,59 @@
             </div>
         </footer>
     </div>
-
-<div class="whiteFlowers">
-    <img id="daisies" src="resources/whiteFlowers.gif" />
-</div>
-
-<div id="endGameDiv" class="hidden">
-    <div id="endGameScreen">
-        <h2 id="endGameText">Game Over</h2>
+    
+    <div class="whiteFlowers">
+        <img id="daisies" src="resources/whiteFlowers.gif" />
     </div>
-    <div id="playAgainButtonDiv">
-        <button id="playAgainButton">Play Again</button>
+    
+    <div id="endGameDiv" class="hidden">
+        <div id="endGameScreen">
+            <h2 id="endGameText">Game Over</h2>
+        </div>
+        <span><div id="playAgainButtonDiv">
+            <button id="playAgainButton">Play Again</button>
+        </div></span>
+        <span></span><div id="loneFlowerDiv">
+            <img id="loneFlowerLeft" src="resources/loneFlower.gif"/>
+            <img id="loneFlowerRight" src="resources/loneFlower.gif"/>
+        </div></span>
     </div>
-</div>
+    
+    <div class="startScreen">
+        <h1 id="startTitle">Welcome To DaisySweeper!</h1>
+        <h2 id="pressPlay">Press Play To Start</h2>
+        <div id="playButtonDiv">
+            <button id="playButton">Play</button>
+        </div>
+        <div id="menuFlowers">
+            <img id="threeFlowers" src="resources/threeFlowers.gif"/>
+        </div>
+    </div>
+    <!-- <iframe src="resources/1-second-of-silence.mp3"  allow="autoplay" id="audio" hidden></iframe> -->
+    
+    <audio id="backgroundBG" loop>
+        <source id="audioPlayer" src="resources/mixkit-christmas-gifts-862.mp3">
+    </audio>
 
-<audio id="audio" autoplay loop>
-    <source id="audioPlayer" src="resources/mixkit-christmas-gifts-862.mp3">
-</audio>
+    <audio id="tileSFX">
+        <source id="tileAudio" src="resources/tileSound.mp3"/>
+    </audio>
+
+    <audio id="flagSFX">
+        <source id="flagAudio" src="resources/mixkit-arcade-game-jump-coin-216.wav"/>
+    </audio>
+
+    <audio id="isolatedSFX">
+        <source id="isolatedAudio" src="resources/isolatedShort.mp3"/>
+    </audio>
+
+    <audio id="gameOverSFX">
+        <source id="gameOverAudio" src="resources/mixkit-arcade-retro-game-over-213.wav"/>
+    </audio>
+
+    <audio id="victorySFX">
+        <source id="victorySound" src="resources/mixkit-winning-chimes-2015.wav"/>
+    </audio>
 
 
     

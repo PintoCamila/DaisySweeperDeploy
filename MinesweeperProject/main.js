@@ -1,16 +1,20 @@
 const grid = document.querySelector(".grid");
-let scoreCounter = document.querySelector("#scorePoints");
-let playAgainButton = document.querySelector("#playAgainButton");
-let restartButton = document.querySelector("#restartBtn");
-let flagCounter = document.querySelector("#flagCounter");
-let endGameScreen = document.querySelector("#endGameDiv");
-let endGameText = document.querySelector("#endGameText");
-let bombCount = document.querySelector("#bombCount");
 
+const startScreen = document.querySelector(".startScreen");
 
- let audioPlayer = document.querySelector("#audioPlayer");
-let muteButton = document.querySelector("#muteButton"); 
+const scoreCounter = document.querySelector("#scorePoints");
+const flagCounter = document.querySelector("#flagCounter");
+const bombCount = document.querySelector("#bombCount");
 
+const playAgainButton = document.querySelector("#playAgainButton");
+const restartButton = document.querySelector("#restartBtn");
+
+const endGameScreen = document.querySelector("#endGameDiv");
+const endGameText = document.querySelector("#endGameText");
+
+const audioPlayer = document.querySelector("#audioPlayer");
+const muteButton = document.querySelector("#muteButton");
+const playButton = document.querySelector("#playButton");
 
 
 let width = 10;
@@ -55,8 +59,7 @@ function createBoard() {
         if(flags !== maxFlags){
 
           addFlag(square);
-          
-
+          flagSFX.play();
         }
     }
   }
@@ -102,14 +105,13 @@ function createBoard() {
 
 
 
-createBoard();
-bombCounter();
-audioControls();
 
+audioControls();
 
 
 //click on square functions:
 function click(square) {
+  tileSFX.play();
   let squareId = square.id;
   if (isGameOver) {
     return;
@@ -118,8 +120,8 @@ function click(square) {
     return;
   }
   if (square.classList.contains("bomb")) {
-
     GameOver(square);
+    gameOverSFX.play();
 
   } else {
     let adjacentBombs = square.getAttribute("data");
@@ -135,6 +137,7 @@ function click(square) {
   if(!square.classList.contains("bomb")){
     square.classList.add("isolated");
     square.innerHTML = "🌼";
+    isolatedSFX.play();
   }
 }
 
@@ -222,6 +225,7 @@ function GameOver(square){
     console.log("BOOM! You Hit a Bomb. Game Over!");
     isGameOver = true;
     setTimeout(() => {endGameScreen.classList.remove("hidden")}, 1000);
+    backgroundBG.pause();
     
     //show all bomb locations:
     squares.forEach(square => {
@@ -247,6 +251,8 @@ function checkFlagVictory() {
             endGameScreen.classList.add("flagWin");
             setTimeout(() => {endGameScreen.classList.remove("hidden")}, 1000);
             playAgainButton.classList.add("flagWin");
+            backgroundBG.pause();
+            victorySFX.play();
             return;
         }
     }
@@ -260,6 +266,8 @@ function checkTileVictory() {
     playAgainButton.classList.add("tileWin");
     endGameText.innerHTML = "All Safe Tiles Found.<br>You Win!";
     setTimeout(() => {endGameScreen.classList.remove("hidden")}, 1000);
+    backgroundBG.pause();
+    victorySFX.play();
   } 
 }
 
@@ -272,6 +280,7 @@ function checkVictory() {
 
 //Add Flag:
 function addFlag(square) {
+  flagSFX.play();
     if(isGameOver || square.classList.contains("checked")|| square.classList.contains("isolated")){
         return;
     }
@@ -300,19 +309,32 @@ restartButton.addEventListener("click", function() {
   window.location.reload();
 })};
 
-restartGame();
+
 
 
 //Audio Controls
 function audioControls(){
 muteButton.addEventListener("click", () => {
-  audio.muted = !audio.muted;
-  if(audio.muted === true){
+  backgroundBG.muted = !backgroundBG.muted;
+  tileSFX.muted = !tileSFX.muted;
+  flagSFX.muted = !flagSFX.muted;
+  isolatedSFX = !isolatedSFX.muted;
+  gameOverSFX = !gameOverSFX.muted;
+  victorySFX = !victorySFX.muted;  
+
+  if(backgroundBG.muted === true){
     muteButton.innerText ="🔊";
   }
-  if(!audio.muted === true){
+  if(!backgroundBG.muted === true){
     muteButton.innerText ="🔈";
   }
+})
+playButton.addEventListener("click", () => {
+  createBoard();
+  bombCounter();
+  restartGame();
+  backgroundBG.play();
+  startScreen.classList.add("hidden")
 })
 };
 
